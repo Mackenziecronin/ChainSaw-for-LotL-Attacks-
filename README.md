@@ -178,7 +178,7 @@ To analyze the Shimcache from the System Hive and output the results to a .csv f
 ```BASH
 chainsaw.exe analyse shimcache "C:\<path to System Hive file>\C\Windows\System32\config\SYSTEM" --regexfile ./analysis/regex.txt --output C:\<path to csv>\shimcache.csv
 ```
-![alt text](image-1.png)
+<img src="Images/ChainsawSigma.png" width=60% height=60%>
 
 ## Results
 After running Chainsaw against the Windows event logs and the Shimcache, the resulting .csv files were then analyzed. Chainsaw was successful in detecting the 8 LotL techniques ran on the victim host, though manual analysis of the results is required to identify the file paths and executables involved in the findings. 
@@ -193,7 +193,7 @@ The results from the Sigma Rules shows that all 8 of the executed techniques wer
 - Hostname
 - Event Data containing the files and commands that were executed  
 
-[Sigma Results](sigma.csv)
+<img src="Images/ChainsawSimcache.png" width=60% height=60%>
 
 The results from the Shimcache analysis show a timeline of the executed events. The results from the Sigma detections can be mapped to the Shimcache timestamps to see the child processes and order of execution for each technique. The results include:
 - Timestamp of execution
