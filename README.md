@@ -229,3 +229,5 @@ https://medium.com/@atnoforcybersecurity/detecting-living-off-the-land-lolbas-at
 https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/  
 https://www.picussecurity.com/resource/glossary/what-is-sigma-rule  
 https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf  
+## Author
+Mackenzie Cronin
