@@ -95,7 +95,7 @@ To ensure that the AtomicRedTeam requirements are met for each technique, run th
 ```PS
 $techniques = Get-Content -path "C:\Temp\Techniques.txt"
 try {
-foreach ($t in Stechniques) {
+foreach ($t in $techniques) {
 Invoke-AtomicTest $t -GetPreqs
 }
 } Catch {
@@ -106,7 +106,7 @@ After installing all necessary prerequisites, execute the attack techniques with
 ```PS
 $techniques = Get-Content -path "C:\Temp\Techniques.txt"
 try {
-foreach ($t in Stechniques) {
+foreach ($t in $techniques) {
 Invoke-AtomicTest $t
 Write-Host "Technique $t executed successfully"
 }
@@ -139,7 +139,7 @@ To clean-up the Winows host after unning the attack techniques, run the followin
 
 ```PS
 $techniques = Get-Content -path "C:\Temp\Techniques.txt"
-foreach ($t in Stechniques) {
+foreach ($t in $techniques) {
 Invoke-AtomicTest $t -Cleanup
 }
 ```
