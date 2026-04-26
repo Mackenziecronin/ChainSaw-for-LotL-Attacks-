@@ -157,7 +157,7 @@ To analyze the Windows event logs using Sigma rule detection and output the resu
 chainsaw.exe hunt events/ -s sigma sigma/ -- mapping mappings/sigma-event-logs-all.yml --csv --output C:\<path to csv>\results.csv
 ```
 ![Chainsaw Output](Images/Chainsawsigma.png) 
-![Screenshot](Images/SigmaSS.png) 
+
 
 ##### B. Shimcache Analysis
 To analyze the Shimcache, we can create custom rules using regex to look for files of interest based on the results from the event log detections. 
@@ -181,7 +181,7 @@ To analyze the Shimcache from the System Hive and output the results to a .csv f
 chainsaw.exe analyse shimcache "C:\<path to System Hive file>\C\Windows\System32\config\SYSTEM" --regexfile ./analysis/regex.txt --output C:\<path to csv>\shimcache.csv
 ```
 ![Chainsaw Output](Images/chainsawsimcache.png) 
-![Screenshot](Images/ShimcacheSS.png)
+
 
 ## Results
 After running Chainsaw against the Windows event logs and the Shimcache, the resulting .csv files were then analyzed. Chainsaw was successful in detecting the 7 LotL techniques ran on the victim host, though manual analysis of the results is required to identify the file paths and executables involved in the findings. 
@@ -197,6 +197,7 @@ The results from the Sigma Rules shows 36 detections. Multiple detections are sh
 - Event Data containing the files and commands that were executed  
 
 [Sigma Results](Sigma.csv)
+![Screenshot](Images/SigmaSS.png) 
 
 The results from the Shimcache analysis show a timeline of the executed events. The results from the Sigma detections can be mapped to the Shimcache timestamps to see the child processes and order of execution for each technique. The results include:
 - Timestamp of execution
@@ -206,7 +207,7 @@ The results from the Shimcache analysis show a timeline of the executed events. 
 
 
 [Shimcache Results](Shimcache.csv)
-
+![Screenshot](Images/ShimcacheSS.png)
 ## Conclusion
 ### Key Takeaways
 Chainsaw offers robust offline, post-compromise analysis capabilities allowing for rapid parsing and detection of suspicious activity in Windows artifacts.
