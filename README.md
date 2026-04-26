@@ -1,5 +1,4 @@
-# Detecting Living off the Land Attacks with Chainsaw
-This project explores Chainsaw for detection of Living off the Land (LotL) Techniques. 
+# 🪚 Detecting Living off the Land Attacks with Chainsaw
 
 ## Project Overview
 This project utilizes Chainsaw to ingest and analyze Windows event logs collected from a victim host and apply sigma rules to detect LotL techniques. Chainsaw is an open-source command-line tool for rapid triage of Windows event logs using sigma rules to detect malicious behavior and known attack patterns in logs. Chainsaw can also be ran against the system registry hive for shimcache analysis. 
@@ -45,7 +44,7 @@ Why use Chainsaw when security tools like SIEMs and EDRs can use sigma rules to 
 
 ### Step-by-Step Guide
 #### 1. Attack Emulation for Log Collection
-##### a. Technique Selection
+##### A. Technique Selection
 To recreate the Windows event logs to be used in Chainsaw analysis, attacks were emulated from two adversaries known for using LotL techniques; Volt Typhoon and APT29. The MITRE ATT&CK Emulation Library and MITRE ATT&CK Navigator were used to map the adversary techniques to the LOLBAS project.
 
 The following techniques were chosen:
@@ -62,12 +61,12 @@ T1547.001 Boot or Logon Autostart Execution: Registry Run Keys / Startup Folder
 Volt Typhoon  
 T1003.001 OS Credential Dumping: LSASS Memory  
 
-##### b. Victim Host Setup
+##### B. Victim Host Setup
 A Windows 11 virtual machine was used as the victim host. The following settings were configured: 
 - Windows Defender disabled
 - Sysmon installed with event logging enabled
 
-##### c. Install Invoke-AtomicRedTeam PowerShell Module
+##### C. Install Invoke-AtomicRedTeam PowerShell Module
 Open PowerShell as Admin and run the following commands:
 ```PS
 # Install Invoke-AtomicRedTeam
@@ -78,7 +77,7 @@ Import-Module "C:\AtomicRedTeam\invoke-atomicredteam\Invoke-AtomicRedTeam.psd1" 
 $PSDefaultParameterValues = @{"Invoke-AtomicTest:PathToAtomicsFolder" = "C:\AtomicRedTeam\atomics"}
 ```   
 
-##### d. Execute the Attack Techniques
+##### D. Execute the Attack Techniques
 To automate the execution of the selected techniques, list the AtomicRedTeam technique names in a text file "Techniques.txt" and save it to a new folder to be used in the PowerShell Scripts.
 
 ```
@@ -114,7 +113,7 @@ write-Host "$t could not be executed"
 }
 ```  
 
-##### e. Event Log Collection
+##### E. Event Log Collection
 Once the attack techniques finish executing, navigate to the Windows event log files located in:  
 
 C:\Windows\System32\winevt\Logs  
@@ -126,7 +125,7 @@ Copy the following log files to a new folder:
 - System.evtx
 - Sysmon.evtx
 
-##### f. Extract System Hive with KAPE
+##### F. Extract System Hive with KAPE
 To extract the System registry hive for Shimcache analysis, open a Command Prompt as Admin and change the working directory to the folder where KAPE has been downloaded to. Run the following command:
 
 ```BASH
@@ -144,7 +143,7 @@ Invoke-AtomicTest $t -Cleanup
 ```
 
 
-#### 2. Chainsaw Analysis
+#### 2. :mag_right: Chainsaw Analysis
 
 Now that the Event Logs and System Hive have been acquired, it is time to analyze them using Chainsaw. Download the Chainsaw tool and the Sigma Ruleset. Copy the Sigma Rules folder, the event logs folder, and the System Hive file into the Chainsaw folder. 
 
@@ -209,7 +208,7 @@ The results from the Shimcache analysis show a timeline of the executed events. 
 [Shimcache.csv](Shimcache.csv)  
 ![Screenshot](Images/ShimcacheSS.png)
 ## Conclusion
-### Key Takeaways
+### :key: Key Takeaways
 Chainsaw offers robust offline, post-compromise analysis capabilities allowing for rapid parsing and detection of suspicious activity in Windows artifacts.
 
 The key takeaway from this project is the importance of supplementary tools like Chainsaw for incident responders to keep in their toolkit. Security tools like SIEMs and EDRs are often more powerful and offer greater capabilities when it comes to incident triage, but these tools are not always available. These primary defenses are not implemented in every environment. If they are, they can be misconfigured or compromised in the event. In isolated or air-gapped networks, endpoints also may not be connected to these security tools. 
