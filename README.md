@@ -156,7 +156,8 @@ To analyze the Windows event logs using Sigma rule detection and output the resu
 ```BASH
 chainsaw.exe hunt events/ -s sigma sigma/ -- mapping mappings/sigma-event-logs-all.yml --csv --output C:\<path to csv>\results.csv
 ```
-![Chainsaw Output](Images/Chainsawsigma.png)  
+![Chainsaw Output](Images/Chainsawsigma.png) 
+![Screenshot](Images/SigmaSS.png) 
 
 ##### B. Shimcache Analysis
 To analyze the Shimcache, we can create custom rules using regex to look for files of interest based on the results from the event log detections. 
@@ -180,11 +181,12 @@ To analyze the Shimcache from the System Hive and output the results to a .csv f
 chainsaw.exe analyse shimcache "C:\<path to System Hive file>\C\Windows\System32\config\SYSTEM" --regexfile ./analysis/regex.txt --output C:\<path to csv>\shimcache.csv
 ```
 ![Chainsaw Output](Images/chainsawsimcache.png) 
+![Screenshot](Images/ShimcacheSS.png)
 
 ## Results
-After running Chainsaw against the Windows event logs and the Shimcache, the resulting .csv files were then analyzed. Chainsaw was successful in detecting the 8 LotL techniques ran on the victim host, though manual analysis of the results is required to identify the file paths and executables involved in the findings. 
+After running Chainsaw against the Windows event logs and the Shimcache, the resulting .csv files were then analyzed. Chainsaw was successful in detecting the 7 LotL techniques ran on the victim host, though manual analysis of the results is required to identify the file paths and executables involved in the findings. 
 
-The results from the Sigma Rules shows that all 8 of the executed techniques were detected. The detections include:
+The results from the Sigma Rules shows 36 detections. Multiple detections are shown for each of the 7 techniques representing the multiple processes involved in each technique. The detections include:
 - Timestamp
 - Event Log Path
 - Detection Description
