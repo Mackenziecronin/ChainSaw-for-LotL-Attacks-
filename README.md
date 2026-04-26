@@ -214,3 +214,18 @@ Chainsaw offers robust offline, post-compromise analysis capabilities allowing f
 The key takeaway from this project is the importance of supplementary tools like Chainsaw for incident responders to keep in their toolkit. Security tools like SIEMs and EDRs are often more powerful and offer greater capabilities when it comes to incident triage, but these tools are not always available. These primary defenses are not implemented in every environment. If they are, they can be misconfigured or compromised in the event. In isolated or air-gapped networks, endpoints also may not be connected to these security tools. 
 
 Tools like Chainsaw give responders resiliency in these situations, allowing them to recover visibility, analyze attacker behavior, and continue response efforts without delay. Strong incident response capability includes having layered, independent tools that still work when others fail. 
+
+## Acknowledgements
+Chainsaw: https://github.com/WithSecureLabs/chainsaw/tree/master  
+Sigma Rules: https://github.com/sigmahq/sigma  
+AtomicRedTeam: https://www.atomicredteam.io/  
+KAPE: https://www.kroll.com/en/publications/cyber/kroll-artifact-parser-extractor-kape  
+LOLBAS Project: https://lolbas-project.github.io/  
+
+## References
+https://attackevals.github.io/ael/enterprise/apt29/emulation_plan/scenario_1/  
+https://mitre-attack.github.io/attack-navigator//#layerURL=https%3A%2F%2Fattack.mitre.org%2Fgroups%2FG1017%2FG1017-enterprise-layer.json  
+https://medium.com/@atnoforcybersecurity/detecting-living-off-the-land-lolbas-attacks-with-sigma-rules-340e441fc444  
+https://www.microsoft.com/en-us/security/blog/2023/05/24/volt-typhoon-targets-us-critical-infrastructure-with-living-off-the-land-techniques/  
+https://www.picussecurity.com/resource/glossary/what-is-sigma-rule  
+https://www.cisa.gov/sites/default/files/2024-03/aa24-038a_csa_prc_state_sponsored_actors_compromise_us_critical_infrastructure_3.pdf  
