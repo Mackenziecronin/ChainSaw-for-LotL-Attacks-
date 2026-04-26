@@ -193,7 +193,7 @@ The results from the Sigma Rules shows that all 8 of the executed techniques wer
 - Hostname
 - Event Data containing the files and commands that were executed  
 
-<img src="Images/ChainsawSimcache.png" width=60% height=60%>
+[Sigma Results](Sigma.csv)
 
 The results from the Shimcache analysis show a timeline of the executed events. The results from the Sigma detections can be mapped to the Shimcache timestamps to see the child processes and order of execution for each technique. The results include:
 - Timestamp of execution
